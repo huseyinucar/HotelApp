@@ -33,8 +33,9 @@ public class BoekingenController {
 
         boolean nietInVerleden = aankomst.isAfter(checkDatum) && vertrek.isAfter(checkDatum);
         boolean vertrekNaAankomst = vertrek.isAfter(aankomst);
-        boolean textIngevuld = naamTextField.getText() != null && adresTextField != null;
-        boolean kamerSelected = !kamertypeComboBox.getSelectionModel().isEmpty();
+        boolean textIngevuld = naamTextField.getText() != null && adresTextField.getText() != null
+                && aankomstdatumDatePicker.getValue() != null && vertrekdatumDatePicker.getValue() != null;
+        boolean kamerSelected = kamertypeComboBox.getValue() != null;
 
         try {
             if (textIngevuld && nietInVerleden && vertrekNaAankomst && kamerSelected) {
